@@ -1,0 +1,15 @@
+# Default
+* text=auto
+
+# TypeScript/JavaScript
+*.ts text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.gif binary
