@@ -66,7 +66,7 @@ jobs:
 
       - name: Run tests (Node.js)
         if: matrix.runtime == 'node'
-        run: bun run test
+        run: npm run test:node
 
       - name: Run tests (Bun)
         if: matrix.runtime == 'bun'
