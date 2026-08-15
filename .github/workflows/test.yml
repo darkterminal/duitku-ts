@@ -40,9 +40,9 @@ jobs:
           - runtime: node
             version: '18'
           - runtime: node
-            version: '20'
-          - runtime: node
             version: '22'
+          - runtime: node
+            version: '24'
           # Bun latest
           - runtime: bun
             version: latest
