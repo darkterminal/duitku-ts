@@ -13,6 +13,9 @@ export { Config } from './Config';
 // Sanitizer
 export { Sanitizer } from './Sanitizer';
 
+// Request
+export { Request } from './Request';
+
 // Error
 export { DuitkuError } from './errors';
 
