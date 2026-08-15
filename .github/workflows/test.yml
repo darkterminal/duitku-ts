@@ -38,8 +38,6 @@ jobs:
       matrix:
         include:
           - runtime: node
-            version: '20'
-          - runtime: node
             version: '22'
           - runtime: node
             version: '24'
