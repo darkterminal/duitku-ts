@@ -19,6 +19,9 @@ export { Request } from './Request';
 // Api
 export { Api } from './Api';
 
+// Pop
+export { Pop } from './Pop';
+
 // Error
 export { DuitkuError } from './errors';
 
