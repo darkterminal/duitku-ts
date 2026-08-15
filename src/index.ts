@@ -1,8 +1,25 @@
 /**
  * Duitku TypeScript SDK
  *
- * Placeholder entry point untuk Fase 0.
- * Akan diisi dengan export semua module di Fase 8.
+ * SDK untuk integrasi payment gateway Duitku,
+ * kompatibel dengan Node.js dan Bun.
  */
 
 export const VERSION = '0.1.0';
+
+// Error
+export { DuitkuError } from './errors';
+
+// Types
+export type {
+  DuitkuConfigOptions,
+  Address,
+  CustomerDetail,
+  ItemDetail,
+  CreateInvoiceParams,
+  CreateInvoiceResponse,
+  TransactionStatusResponse,
+  CallbackNotification,
+  PaymentFee,
+  GetPaymentMethodResponse,
+} from './types';
