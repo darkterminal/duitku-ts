@@ -61,35 +61,31 @@ export class Sanitizer {
    * console.log(params.phoneNumber);    // '+62 812-3456-7890' (tidak berubah)
    * ```
    */
-  static request<T extends Record<string, unknown>>(parameterArray: T): T {
+  static request<T extends object>(parameterArray: T): T {
     if (!parameterArray || typeof parameterArray !== 'object') {
       return parameterArray;
     }
 
-    const result = { ...parameterArray };
+    // Cast ke Record<string, unknown> untuk manipulasi internal
+    const result = { ...parameterArray } as Record<string, unknown>;
 
     for (const [rulesLabel, parameterValue] of Object.entries(result)) {
       if (Array.isArray(parameterValue)) {
         // itemDetails adalah array
-        result[rulesLabel as keyof T] = parameterValue.map((item) =>
+        result[rulesLabel] = parameterValue.map((item) =>
           Sanitizer.sanitizeNested(item as Record<string, unknown>)
-        ) as T[keyof T];
+        );
       } else if (parameterValue && typeof parameterValue === 'object') {
         // customerDetail adalah object
-        result[rulesLabel as keyof T] = Sanitizer.sanitizeNested(
-          parameterValue as Record<string, unknown>
-        ) as T[keyof T];
+        result[rulesLabel] = Sanitizer.sanitizeNested(parameterValue as Record<string, unknown>);
       } else {
         if (rules[rulesLabel]) {
-          result[rulesLabel as keyof T] = Sanitizer.sanitizeValue(
-            rules[rulesLabel],
-            parameterValue
-          ) as T[keyof T];
+          result[rulesLabel] = Sanitizer.sanitizeValue(rules[rulesLabel], parameterValue);
         }
       }
     }
 
-    return result;
+    return result as T;
   }
 
   /**
