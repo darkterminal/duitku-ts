@@ -10,6 +10,9 @@ export const VERSION = '0.1.0';
 // Config
 export { Config } from './Config';
 
+// Sanitizer
+export { Sanitizer } from './Sanitizer';
+
 // Error
 export { DuitkuError } from './errors';
 
